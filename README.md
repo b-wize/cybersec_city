@@ -1,0 +1,1 @@
+This is a brief collection of some of the detection logic searches I've built over the last few years. These are as general as possible to keep them modular. The table names are intentionally left as comments to be swapped out to a person's individual environment.
