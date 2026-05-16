@@ -1,0 +1,3 @@
+declare query_parameters (user:string = "");
+SigninLogs
+|where is
