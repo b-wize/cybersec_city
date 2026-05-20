@@ -1,0 +1,4 @@
+_sourceCategory= *palo* _dataTier=all //replace with the log table for your firewall, we'll use palo alto as an example
+|where app contains "evernote" and action contains "allow" and src_zone <> "Guest-Wifi" and dest_zone == "untrust" //by using these zone filters, we can rule out guest network traffic and only search on the internal one
+|replace(src_user, /domainname, "") as src_user //this will remove the domainname/username structure and clean up the output to only show the user samaccountname
+|count user, app //will give a clean breakdown of how many time each person accessed the app
