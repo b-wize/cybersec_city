@@ -1,0 +1,5 @@
+_sourceCategory="prod/infrastructure/windows/*" (4756 or 4728) and "username" //can replace with upn or samaccountname for specific search
+|parse "EventCode = *;" as event_id //this line redefines the EventCode as an event_id field
+|parse regex ".*\tAccount Name:\t[^-](?<user>[\w\W]\S+)"    //this line extracts the account name from the event log and places into a user field
+|parse regex ".*\tGroup Name:\t[^-](?<group>[\w\W][^\n]+)"  //this line extracts the group name from the event log and places into a group field
+|where event_id in ("4756", "4728") //only grab events that match common "user removed" event IDs
